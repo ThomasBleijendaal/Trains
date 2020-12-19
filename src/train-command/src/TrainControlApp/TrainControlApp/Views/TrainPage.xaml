@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrainControlApp.Views.TrainPage"
+             xmlns:vm="clr-namespace:TrainControlApp.ViewModels"
+             Title="{Binding Title}"
+             x:Name="Page">
+
+    <ContentPage.BindingContext>
+        <vm:TrainViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="3,2,3,2" Spacing="10">
+                <ListView ItemsSource="{Binding Trains}" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="1"
+                                       Text="{Binding Id}"
+                                       FontAttributes="Bold" />
+                                    <Button 
+                                         Grid.Column="2"
+                                        Command="{Binding Path=BindingContext.FasterCommand, Source={x:Reference Page}}"
+                                        CommandParameter="{Binding .}"
+                                        Text="Sneller"
+                                        BackgroundColor="Green"
+                                        TextColor="White" />
+                                    <Button 
+                                         Grid.Column="3"
+                                        Command="{Binding Path=BindingContext.SlowerCommand, Source={x:Reference Page}}"
+                                        CommandParameter="{Binding .}"
+                                        Text="Zachter"
+                                        BackgroundColor="Orange"
+                                        TextColor="White" />
+                                    <Button 
+                                         Grid.Column="4"
+                                        Command="{Binding Path=BindingContext.StopCommand, Source={x:Reference Page}}"
+                                        CommandParameter="{Binding .}"
+                                        Text="Stop"
+                                        BackgroundColor="Red"
+                                        TextColor="White" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
