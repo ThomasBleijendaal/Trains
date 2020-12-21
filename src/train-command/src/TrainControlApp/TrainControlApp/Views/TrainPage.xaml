@@ -42,21 +42,21 @@
                                          Grid.Column="2"
                                         Command="{Binding Path=BindingContext.FasterCommand, Source={x:Reference Page}}"
                                         CommandParameter="{Binding .}"
-                                        Text="Sneller"
+                                        Text="+"
                                         BackgroundColor="Green"
                                         TextColor="White" />
                                     <Button 
                                          Grid.Column="3"
                                         Command="{Binding Path=BindingContext.SlowerCommand, Source={x:Reference Page}}"
                                         CommandParameter="{Binding .}"
-                                        Text="Zachter"
+                                        Text="-"
                                         BackgroundColor="Orange"
                                         TextColor="White" />
                                     <Button 
                                          Grid.Column="4"
                                         Command="{Binding Path=BindingContext.StopCommand, Source={x:Reference Page}}"
                                         CommandParameter="{Binding .}"
-                                        Text="Stop"
+                                        Text="0"
                                         BackgroundColor="Red"
                                         TextColor="White" />
                                 </Grid>

@@ -28,7 +28,7 @@ public:
   }
 
   void callbackMessage() {
-    Serial.println("Message received.");
+    //Serial.println("Message received.");
     
     analogWrite(5, _message.messageStruct.speed);
   }
@@ -43,8 +43,8 @@ void setup()
 {
   pinMode(5, OUTPUT);
 
-  Serial.begin(9600);
-  Serial.println("Hi!");
+  //Serial.begin(9600);
+  //Serial.println("Hi!");
   
   WiFi.begin(WIFI_SSID, WIFI_PWD);
 
@@ -59,9 +59,9 @@ void setup()
 
   digitalWrite(5, FULLSTOP);
 
-  Serial.println("WiFi connected");  
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
+  //Serial.println("WiFi connected");  
+  //Serial.println("IP address: ");
+  //Serial.println(WiFi.localIP());
 
   udp.begin(15670);
 
